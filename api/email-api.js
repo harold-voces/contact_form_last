@@ -2,6 +2,8 @@ const nodemailer = require('nodemailer');
 
 const handler = async (req, res) => {
 
+  console.log('Server log here');
+
   const { staffEmail, name, email, message } = req.body;
 
   if (!staffEmail || !name || !email || !message) {
