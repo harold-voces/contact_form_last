@@ -2,11 +2,6 @@ const nodemailer = require('nodemailer');
 
 const handler = async (req, res) => {
 
-  if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
-  }
-
   const { staffEmail, name, email, message } = req.body;
 
   if (!staffEmail || !name || !email || !message) {
