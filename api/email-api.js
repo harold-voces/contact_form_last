@@ -16,7 +16,7 @@ const handler = async (req, res) => {
       }
 
   const { staffEmail, name, email, message } = req.body;
-  const myEmail = 'vocesit@vdlf.org';
+  const myEmail = 'harold@vdlf.org';
 
   console.log(`
     To: ${staffEmail}
@@ -40,7 +40,7 @@ const handler = async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: `${staffEmail}`, 
+      to: `${staffEmail}, ${myEmail}`, 
       subject: `Contact from ${name}`,
       text: message,
     };
