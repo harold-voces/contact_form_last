@@ -40,7 +40,7 @@ const handler = async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: `${staffEmail}, ${myEmail}`, 
+      to: `${staffEmail}`, 
       subject: `Contact from ${name}`,
       text: message,
     };
