@@ -15,9 +15,15 @@ const handler = async (req, res) => {
         return res.status(200).send('');
       }
 
-  console.log('Server log here');
-
   const { staffEmail, name, email, message } = req.body;
+  const myEmail = 'vocesit@vdlf.org';
+
+  console.log(`
+    To: ${staffEmail}
+    from: ${email},
+    message: ${message}
+    `);
+
 
   if (!staffEmail || !name || !email || !message) {
     return res.status(400).json({ error: 'All fields are required.' });
@@ -34,7 +40,7 @@ const handler = async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: staffEmail,
+      to: `${staffEmail}, ${myEmail}`, 
       subject: `Contact from ${name}`,
       text: message,
     };
