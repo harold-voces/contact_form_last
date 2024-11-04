@@ -122,10 +122,12 @@ const handler = async (req, res) => {
             from: email,
             to: `${staffEmail}, ${myEmail}`, 
             subject: `Contact from ${name}`,
-            text: `On ${formattedRequestDate},
+            text: `
+            On ${formattedRequestDate},
             Name: ${name},
             Email: ${email},  
-            wrote: ${message}`,
+            wrote: ${message}
+            `,
           };
 
     await transporter.sendMail(mailOptions);
