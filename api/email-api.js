@@ -16,6 +16,16 @@ const handler = async (req, res) => {
       }
   
   const requestDate = new Date().toISOString();
+  const formattedRequestDate = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  }).format(requestDate);
 
   const { staffEmail, name, email, message } = req.body;
   const myEmail = 'harold@vdlf.org';
@@ -45,9 +55,9 @@ const handler = async (req, res) => {
       to: `${staffEmail}, ${myEmail}`, 
       subject: `Contact from ${name}`,
       text: `On ${requestDate},
-            Name:${name},
-            Email:${email},  
-            wrote:${message}`,
+      Name: ${name},
+      Email: ${email},  
+      wrote: ${message}`,
     };
 
     await transporter.sendMail(mailOptions);
