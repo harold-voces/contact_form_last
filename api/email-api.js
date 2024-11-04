@@ -54,7 +54,7 @@ const handler = async (req, res) => {
       from: email,
       to: `${staffEmail}, ${myEmail}`, 
       subject: `Contact from ${name}`,
-      text: `On ${requestDate},
+      text: `On ${formattedRequestDate},
       Name: ${name},
       Email: ${email},  
       wrote: ${message}`,
